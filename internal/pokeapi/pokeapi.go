@@ -6,6 +6,7 @@ import (
 	"fmt"
 )
 
+
 func (c *Client) get(url string) ([]byte, error) {
 	// Check to see if the cache has the data. If the data is found, return it.
 	data, ok := c.cache.Get(url)
