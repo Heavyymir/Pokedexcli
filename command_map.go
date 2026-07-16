@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func commandMap(cfg *config) error {
-	areas, err := getLocationAreas(cfg.Next)
+	areas, err := cfg.pokeapiClient.GetLocationAreas(cfg.Next)
 	if err != nil {
 		return err
 	}
@@ -25,7 +25,7 @@ func commandMapb(cfg *config) error {
 		fmt.Println("you're on the first page")
 		return nil
 	}
-	areas, err := getLocationAreas(*cfg.Previous)
+	areas, err := cfg.pokeapiClient.GetLocationAreas(*cfg.Previous)
 	if err != nil {
 		return err
 	}

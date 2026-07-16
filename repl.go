@@ -2,23 +2,25 @@ package main
 
 import (
 	"bufio"
-	"os"
 	"fmt"
+	"os"
 	"strings"
-	)
+
+	"github.com/Heavyymir/Pokedex.cli/internal/pokeapi"
+)
 
 func cleanInput(text string) []string {
 	lowerCase := strings.ToLower(text)
 	fields := strings.Fields(lowerCase)
-	return fields 
+	return fields
 }
 
-
 func startRepl() {
-	 cfg := config{
-              Next:   "https://pokeapi.co/api/v2/location-area/",
-              Previous: nil,
-               }
+	cfg := config{
+		Next:          "https://pokeapi.co/api/v2/location-area/",
+		Previous:      nil,
+		pokeapiClient: pokeapi.NewClient(),
+	}
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print("Pokedex > ")
