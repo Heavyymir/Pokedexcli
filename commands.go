@@ -48,6 +48,11 @@ func getCommands() map[string]cliCommand {
 			description: "inspects the data for a Pokemon in the Pokedex",
 			callback:	 commandInspect,
 		},
+		"pokedex": {
+			name:		 "pokedex",
+			description: "prints a list of all caught pokemon",
+			callback:	 commandPokedex,
+		},
 	}
 }
 
@@ -58,15 +63,16 @@ func commandExit(cfg *config, args ...string) error {
 }
 
 func commandHelp(cfg *config, args ...string) error {
-	fmt.Println(`Welcome to the Pokedex!
+	fmt.Println(`Welcome to the Pokedexcli!
 Usage:
 
-help: Displays a help message
-exit: Exit the Pokedex
-map: Shows the next 20 in-game locations
-mapb: Shows the previous 20 in-game locations
-explore: Shows the possible encounters in an area
-catch: Attempts to catch a Pokemon
-inspect: Inspects data in the Pokedex`)
+help: Displays a help message.
+exit: Exit the Pokedex.
+map: Shows the next 20 in-game locations.
+mapb: Shows the previous 20 in-game locations.
+explore: Shows the possible encounters in an area.
+catch: Attempts to catch a Pokemon.
+inspect: Inspects data and statistics for a single caught Pokemon.
+pokedex: prints a list of all captured pokemon.`)
 	return nil
 }

@@ -24,7 +24,8 @@ func commandCatch(cfg *config, args ...string) error {
 	catchVal := rand.Float64()
 	if catchVal <= chance {
 		fmt.Printf("%s successfully caught!\n", pokemon.Name)
-		fmt.Printf("Adding %s's data to the Pokedex!\n", pokemon.Name)	
+		fmt.Printf("Adding %s's data to the Pokedex!\n", pokemon.Name)
+		fmt.Printf("You may now inspect %s's Pokedex data with the inspect command\n", pokemon.Name)	
 		cfg.CaughtPokemon[pokemon.Name] = pokemon
 	} else {
 		fmt.Printf("%s broke free!\n", pokemon.Name)
