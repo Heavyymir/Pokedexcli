@@ -17,7 +17,7 @@ type LocationAreaResponse struct {
 // Define encounters for an Area
 type LocationArea struct {
 	Name		string `json:"name"`
-	Encounters	[]Pokemon `json:"pokemon_encounters"`
+	Encounters	[]PokemonEncounter `json:"pokemon_encounters"`
 }
 
 // Get the locations for the user.
@@ -40,7 +40,7 @@ func (c *Client) GetLocationAreas(pageURL string) (LocationAreaResponse, error) 
 
 //Get the encounters in a location for the user.
 func (c *Client) GetLocationArea(name string) (LocationArea, error) {
-	url := BaseURL + "/" + name
+	url := BaseURL + "location-area/" + name
 
 	body, err := c.get(url)
 	if err != nil {

@@ -38,6 +38,11 @@ func getCommands() map[string]cliCommand {
 			description: "displays the possible encounters in an area",
 			callback: 	 commandExplore,
 		},
+		"catch": {
+			name: 		 "catch",
+			description: "Attempts to capture a pokemon",
+			callback:	 commandCatch,
+		},
 	}
 }
 
@@ -54,6 +59,8 @@ Usage:
 help: Displays a help message
 exit: Exit the Pokedex
 map: Shows the next 20 in-game locations
-mapb: Shows the previous 20 in-game locations`)
+mapb: Shows the previous 20 in-game locations
+explore: Shows the possible encounters in an area
+catch: Attempts to catch a pokemon`)
 	return nil
 }

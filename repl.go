@@ -17,9 +17,10 @@ func cleanInput(text string) []string {
 
 func startRepl() {
 	cfg := config{
-		Next:          "https://pokeapi.co/api/v2/location-area/",
+		Next:          pokeapi.BaseURL + "location-area/",
 		Previous:      nil,
 		pokeapiClient: pokeapi.NewClient(),
+		CaughtPokemon: make(map[string]pokeapi.Pokemon),
 	}
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
